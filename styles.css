@@ -8,7 +8,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: white;
+    background: #1a1a1a;
     font-family: 'Poppins', sans-serif;
     position: relative;
 }
@@ -21,13 +21,14 @@ body {
 h1 {
     font-size: 8rem;
     margin: 0;
-    background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96E6A1);
+    background: linear-gradient(45deg, #FF416C, #FF4B2B, #7A19FF, #4E00C2);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     animation: float 6s ease-in-out infinite, gradientMove 15s ease infinite;
     letter-spacing: 5px;
     background-size: 300% 300%;
+    text-shadow: 0 0 20px rgba(255, 65, 108, 0.3);
 }
 
 @keyframes gradientMove {
@@ -88,7 +89,7 @@ footer {
     text-align: center;
     width: 100%;
     font-size: 1rem;
-    color: #666;
+    color: #ffffff;
     font-weight: 500;
     letter-spacing: 1px;
     animation: fadeIn 2s ease-in;
@@ -108,10 +109,30 @@ footer {
 footer p {
     margin: 0;
     padding: 10px;
-    background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+    background: linear-gradient(45deg, #FF416C, #7A19FF);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
 }
   
