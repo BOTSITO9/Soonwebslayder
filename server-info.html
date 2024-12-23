@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Status - SlayderNetwork</title>
+    <link rel="stylesheet" href="server-styles.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <nav>
+        <a href="index.html" class="back-btn">← Back</a>
+    </nav>
+    <div class="container">
+        <h1>SlayderNetwork</h1>
+        <div class="server-info">
+            <div class="status-card">
+                <h2>Server Status</h2>
+                <div id="server-status">
+                    <div class="status-indicator"></div>
+                    <span id="status-text">Checking...</span>
+                </div>
+                <div class="players">
+                    <span id="player-count">-/-</span>
+                </div>
+            </div>
+            <div class="connection-info">
+                <h2>Connection Information</h2>
+                <div class="info-item">
+                    <span class="label">Domain:</span>
+                    <div class="value-container" data-copy="slaydernetwork.ddns.net">
+                        <span class="value">slaydernetwork.ddns.net</span>
+                        <span class="copy-tooltip">Click to copy</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="label">Port:</span>
+                    <div class="value-container" data-copy="25502">
+                        <span class="value">25502</span>
+                        <span class="copy-tooltip">Click to copy</span>
+                    </div>
+                </div>
+                <div class="christmas-message">
+                    <span>Merry Christmas!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Made by sr_shoter</p>
+    </footer>
+    <script src="server-status.js"></script>
+</body>
+</html> 

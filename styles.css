@@ -1,138 +1,149 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
+:root {
+    --vh: 1vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #1a1a1a;
+    background: #0a192f;
     font-family: 'Poppins', sans-serif;
     position: relative;
+    overflow: hidden;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a192f 0%, #1e3a5f 50%, #0a192f 100%);
+    z-index: -2;
 }
 
 .container {
-    text-align: center;
     position: relative;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
 
 h1 {
-    font-size: 8rem;
+    font-size: min(15vw, 8rem);
     margin: 0;
-    background: linear-gradient(45deg, #FF416C, #FF4B2B, #7A19FF, #4E00C2);
+    background: linear-gradient(45deg, #00c3ff, #0077ff);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: float 6s ease-in-out infinite, gradientMove 15s ease infinite;
-    letter-spacing: 5px;
-    background-size: 300% 300%;
-    text-shadow: 0 0 20px rgba(255, 65, 108, 0.3);
+    text-shadow: 0 0 30px rgba(0, 195, 255, 0.3);
+    animation: floatAnimation 3s ease-in-out infinite, glowAnimation 2s ease-in-out infinite alternate;
 }
 
-@keyframes gradientMove {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+.soon-link {
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    display: inline-block;
 }
 
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-h1::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 70%);
-    filter: blur(15px);
-    z-index: -1;
-    animation: pulse 4s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.3;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 0.5;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0.3;
-    }
+.soon-link:hover {
+    transform: scale(1.05);
 }
 
 footer {
     position: fixed;
-    bottom: 20px;
-    text-align: center;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    font-size: 1rem;
-    color: #ffffff;
-    font-weight: 500;
-    letter-spacing: 1px;
-    animation: fadeIn 2s ease-in;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    z-index: 2;
 }
 
 footer p {
+    font-size: clamp(0.8rem, 2vw, 1rem);
     margin: 0;
-    padding: 10px;
-    background: linear-gradient(45deg, #FF416C, #7A19FF);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
 }
 
-.logo {
-    width: 20px;
-    height: 20px;
-    margin-left: 5px;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
+@keyframes floatAnimation {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-5px);
+        transform: translateY(-10px);
     }
 }
-  
+
+@keyframes glowAnimation {
+    from {
+        text-shadow: 0 0 20px rgba(0, 195, 255, 0.3);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(0, 195, 255, 0.7);
+    }
+}
+
+/* Ajustes para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    body {
+        height: calc(var(--vh, 1vh) * 100);
+    }
+
+    h1 {
+        font-size: min(20vw, 5rem);
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media screen and (max-width: 320px) {
+    h1 {
+        font-size: min(25vw, 4rem);
+    }
+}
+
+/* Ajustes para pantallas grandes */
+@media screen and (min-width: 1200px) {
+    h1 {
+        font-size: min(8vw, 8rem);
+    }
+}
+
+/* Ajustes para orientación horizontal en móviles */
+@media screen and (max-height: 500px) {
+    body {
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: min(15vh, 4rem);
+    }
+
+    footer {
+        position: relative;
+        margin-top: auto;
+    }
+}
+
